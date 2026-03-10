@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS optics;
 CREATE DATABASE optics CHARACTER SET utf8mb4;
 USE optics;
 
-CREATE TABLE Supplier (
+CREATE TABLE supplier (
   name VARCHAR(100) NOT NULL,
   street VARCHAR(100) NOT NULL,
   number INT NOT NULL,
@@ -16,12 +16,13 @@ CREATE TABLE Supplier (
   NIF VARCHAR(9) NOT NULL PRIMARY KEY
 );
 
-CREATE TABLE Brand (
+CREATE TABLE brand (
     name VARCHAR(100) NOT NULL PRIMARY KEY,
-    supplier VARCHAR(100) NOT NULL
+    supplier VARCHAR(9) NOT NULL,
+    FOREIGN KEY (supplier) REFERENCES supplier(NIF)
 );
 
-CREATE TABLE Glasses (
+CREATE TABLE glasses (
     brand VARCHAR(100) NOT NULL,
     model VARCHAR(100) NOT NULL,
     leftlenprescription DECIMAL NOT NULL,
@@ -32,10 +33,12 @@ CREATE TABLE Glasses (
     rightlencolor VARCHAR(10) NOT NULL,
     price DECIMAL NOT NULL,
     employeenamesoldby VARCHAR(100),
-    PRIMARY KEY (brand,model)
+    PRIMARY KEY (brand,model),
+    FOREIGN KEY (brand) REFERENCES brand(name)
+
 );
 
-CREATE TABLE Client (
+CREATE TABLE client (
     name VARCHAR(100) NOT NULL,
     postalcode VARCHAR(5) NOT NULL,
     phone VARCHAR(15) NOT NULL,
