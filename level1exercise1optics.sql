@@ -31,7 +31,7 @@ CREATE TABLE glasses (
     framecolor VARCHAR(10) NOT NULL,
     leftlencolor VARCHAR(10) NOT NULL,
     rightlencolor VARCHAR(10) NOT NULL,
-    price DECIMAL NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
     employeenamesoldby VARCHAR(100),
     PRIMARY KEY (brand,model),
     FOREIGN KEY (brand) REFERENCES brand(name)
@@ -44,6 +44,6 @@ CREATE TABLE client (
     phone VARCHAR(15) NOT NULL,
     email VARCHAR(100) NOT NULL,
     registrationdate DATE NOT NULL,
-    recommendedby VARCHAR(100),
+    recommendedby VARCHAR(100) NULL,
     PRIMARY KEY (name)
 );
