@@ -281,7 +281,3 @@ We are also interested in keeping track of which **albums** and **songs** are fa
 A user can select many albums and songs as favorites.
 
 **Note:** Once the databases are created, we will fill the tables with test data to verify that the relationships are correct.
-
-***
-
-Would you like me to format this further (for example, as a structured database schema outline)?
