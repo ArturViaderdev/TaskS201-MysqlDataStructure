@@ -114,13 +114,9 @@ For each employee, store a unique identifier and the following details:
 
 For delivery orders, it is important to record which delivery driver made the delivery and the date/time it was completed.
 
-
-
 ***Answer***
 
 I did the exercise. The SQL script is in the **level1exercise2pizzeria.sql** file, and the diagram is in **level1exercise2pizzeria.png**.
-
-
 
 # Level 2
 
@@ -209,3 +205,83 @@ A user can write comments on a specific video. Each comment is identified by a u
 
 A user can mark a comment as **like** or **dislike**.  
 We must keep a record of which users have marked a comment as like/dislike and when (date/time) they did it.
+
+
+
+# Level 3
+
+## Exercise 1 – Spotify
+
+We will try to create a simple model of how the database required for **Spotify** would look.
+
+There are two types of users: **free** and **premium**. For each user, we store a unique identifier and the following information:
+
+- Email
+- Password
+- Username
+- Date of birth
+- Gender
+- Country
+- Postal code
+
+Premium users have **subscriptions**. The necessary data to store for each subscription are:
+
+- Subscription start date
+- Service renewal date
+- A payment method, which can be either credit card or **PayPal**
+
+For credit cards, we store the card number, expiration month and year, and the security code.
+For users who pay with **PayPal**, we store their **PayPal** username.
+
+We are also interested in keeping a record of all the payments a premium user has made during their subscription period. For each payment, we store:
+
+- Date
+- Unique order number
+- Total amount
+
+A user can create many **playlists**. For each playlist, we store:
+
+- Title
+- Number of songs it contains
+- Unique identifier
+- Creation date
+
+When a user deletes a playlist, it is not removed from the system; instead, it is marked as deleted. This allows the user to recover their playlists in case they deleted them by mistake.
+It is necessary to store the date when the playlist was marked as deleted.
+
+We can say that there are two types of playlists: **active** and **deleted**.
+An active playlist can be **shared** with other users, meaning other users can add songs to it.
+In a shared playlist, we are interested in knowing which user added each song and on what date.
+
+A **song** can belong to only one **album**.
+An **album** can contain many songs.
+An album is published by a single **artist**, and an artist can have published many albums.
+
+For each **song**, we store a unique identifier and:
+
+- Title
+- Duration
+- Number of times it has been played by Spotify users
+
+For each **album**, we store a unique identifier and:
+
+- Title
+- Year of publication
+- Album cover image
+
+For each **artist**, we store a unique identifier and:
+
+- Name
+- Artist image
+
+A user can follow many artists, and an artist can be related to other artists who make similar music.
+This allows Spotify to show a list of artists related to those we like.
+
+We are also interested in keeping track of which **albums** and **songs** are favorites of a user.
+A user can select many albums and songs as favorites.
+
+**Note:** Once the databases are created, we will fill the tables with test data to verify that the relationships are correct.
+
+***
+
+Would you like me to format this further (for example, as a structured database schema outline)?
