@@ -206,7 +206,9 @@ A user can write comments on a specific video. Each comment is identified by a u
 A user can mark a comment as **like** or **dislike**.  
 We must keep a record of which users have marked a comment as like/dislike and when (date/time) they did it.
 
+**Answer**
 
+I created the YouTube database. The SQL code is in **level2exercise1youtube.sql**, and the diagram is in **level2exercise1youtube.png**.
 
 # Level 3
 
@@ -280,4 +282,8 @@ This allows Spotify to show a list of artists related to those we like.
 We are also interested in keeping track of which **albums** and **songs** are favorites of a user.
 A user can select many albums and songs as favorites.
 
-**Note:** Once the databases are created, we will fill the tables with test data to verify that the relationships are correct.
+**Answer**
+
+I created the spotify database. The sql code is in **level3exercise1spotify.sql** and the diagram is in **level3exercise1spotify.png**
+
+**Note:** Once the databases are created, we will fill the tables with test data to verify that the relationships are correct.100

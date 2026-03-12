@@ -12,7 +12,7 @@ CREATE TABLE channel(
 
 CREATE TABLE youtubeuser(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(256) NOT NULL,
+    email VARCHAR(256) UNIQUE NOT NULL,
     pass VARCHAR(100) NOT NULL,
     username VARCHAR(100) NOT NULL,
     dateofbirth DATE NOT NULL,
