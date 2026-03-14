@@ -286,4 +286,22 @@ A user can select many albums and songs as favorites.
 
 I created the spotify database. The sql code is in **level3exercise1spotify.sql** and the diagram is in **level3exercise1spotify.png**
 
-**Note:** Once the databases are created, we will fill the tables with test data to verify that the relationships are correct.100
+
+
+
+
+**Note:** Once the databases are created, we will fill the tables with test data to verify that the relationships are correct.
+
+
+### To verify that your design is correct, perform the following queries and check that they return correct results:
+
+#### Optics:
+
+- List the total number of invoices for a customer within a given period.
+- List the different models of glasses sold by an employee during a year.
+- List the different suppliers that have provided glasses successfully sold by the optics store.
+
+#### Pizzeria:
+
+- List how many products from the *“Drinks”* category have been sold in a specific location.
+- List how many orders have been processed by a particular employee.
