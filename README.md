@@ -39,7 +39,7 @@ Finally, the system must indicate which employee sold each pair of glasses.
 
 ***Answer***
 
- designed the database without numeric IDs because the DNI and name are unique and can serve as primary keys. The SQL file is called ***level1exercise1optics.sql***, and the diagram is in **level1exercise1optics.png**.
+The SQL file is called ***level1exercise1optics.sql***, and the diagram is in **level1exercise1optics.png**.
 
 ## Exercise 2 - Pizzeria
 
