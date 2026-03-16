@@ -2,16 +2,26 @@ DROP DATABASE IF EXISTS spotify;
 CREATE DATABASE spotify CHARACTER SET utf8mb4;
 USE spotify;
 
+CREATE TABLE countries(
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL
+);
+
 CREATE TABLE users(
       id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
       email VARCHAR(256) UNIQUE NOT NULL,
       pass VARCHAR(100) NOT NULL,
       user_name VARCHAR(100) NOT NULL,
       birth_date DATE NOT NULL,
-      sex_is_male BOOL NOT NULL,
-      country VARCHAR(100) NOT NULL,
+      sex ENUM('MALE','FEMALE') NOT NULL,
+      country INT UNSIGNED NOT NULL,
       postal_code VARCHAR(5) NOT NULL,
       is_premium BOOL NOT NULL,
+      FOREIGN KEY (country) REFERENCES countries(id)
+);
+
+CREATE TABLE subscriptions(
+      id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
       subscription_date DATE NULL,
       renovation_date DATE NULL,
       pay_method ENUM('CREDIT CARD','PAYPAL')NULL,
@@ -19,15 +29,17 @@ CREATE TABLE users(
       card_expiration_month INT UNSIGNED NULL,
       card_expiration_year INT UNSIGNED NULL,
       card_security_code INT UNSIGNED NULL,
-      paypal_user VARCHAR(256) NULL
+      paypal_user VARCHAR(256) NULL,
+      spotify_user INT UNSIGNED NOT NULL,
+      FOREIGN KEY (spotify_user) REFERENCES users(id)
 );
 
 CREATE TABLE renovations(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     renovation_date DATE NOT NULL,
     total DECIMAL(10,2) NOT NULL,
-    spotify_user INT UNSIGNED NOT NULL,
-    FOREIGN KEY (spotify_user) REFERENCES users(id)
+    subscription INT UNSIGNED NOT NULL,
+    FOREIGN KEY (subscription) REFERENCES subscriptions(id)
 );
 
 CREATE TABLE playlists(
@@ -72,7 +84,8 @@ CREATE TABLE songs_of_playlists(
     added_date DATE NOT NULL,
     PRIMARY KEY(playlist,song),
     FOREIGN KEY(playlist) REFERENCES playlists(id),
-    FOREIGN KEY(song) REFERENCES songs(id)
+    FOREIGN KEY(song) REFERENCES songs(id),
+    FOREIGN KEY (spotify_user) REFERENCES users(id)
 );
 
 CREATE TABLE follows(

@@ -2,25 +2,30 @@ DROP DATABASE IF EXISTS youtube;
 CREATE DATABASE youtube CHARACTER SET utf8mb4;
 USE youtube;
 
-
-CREATE TABLE channels(
+CREATE TABLE countries(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) UNIQUE NOT NULL,
-    description VARCHAR(512) NOT NULL,
-    creation_date DATE NOT NULL
+    name VARCHAR(100) UNIQUE NOT NULL
 );
 
 CREATE TABLE users(
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(256) UNIQUE NOT NULL,
     pass VARCHAR(100) NOT NULL,
-    username VARCHAR(100) NOT NULL,
+    user_name VARCHAR(100) NOT NULL,
     date_of_birth DATE NOT NULL,
-    sex_is_male BOOL NOT NULL,
-    country VARCHAR(100) NOT NULL,
-    postalcode VARCHAR(5) NOT NULL,
-    channel INT UNSIGNED NULL,
-    FOREIGN KEY (channel) REFERENCES channels(id)
+    sex ENUM('MALE','FEMALE') NOT NULL,
+    country INT UNSIGNED NOT NULL,
+    postal_code VARCHAR(5) NOT NULL,
+    FOREIGN KEY(country) REFERENCES countries(id)
+);
+
+CREATE TABLE channels(
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL,
+    description VARCHAR(512) NOT NULL,
+    creation_date DATE NOT NULL,
+    youtube_user INT UNSIGNED UNIQUE NOT NULL,
+    FOREIGN KEY (youtube_user) REFERENCES users(id)
 );
 
 CREATE TABLE videos(
@@ -28,7 +33,7 @@ CREATE TABLE videos(
     title VARCHAR(256) NOT NULL,
     description VARCHAR(512) NOT NULL,
     size_mb INT UNSIGNED NOT NULL,
-    filename VARCHAR(256) NOT NULL,
+    file_name VARCHAR(256) NOT NULL,
     duration_seconds INT UNSIGNED NOT NULL,
     thumbnail VARCHAR(256) NOT NULL,
     reproductions INT UNSIGNED NOT NULL,
@@ -42,7 +47,7 @@ CREATE TABLE videos(
 
 CREATE TABLE tags(
      id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-     name VARCHAR(100) NOT NULL
+     name VARCHAR(100) UNIQUE NOT NULL
 );
 
 CREATE TABLE tags_videos(
@@ -107,3 +112,15 @@ CREATE TABLE likes_of_comments(
     FOREIGN KEY(youtube_comment) REFERENCES comments(id),
     FOREIGN KEY(youtube_user) REFERENCES users(id)
 );
+
+INSERT INTO countries(name) VALUES('Spain');
+
+INSERT INTO users(email,pass,user_name,date_of_birth,sex,country,postal_code) VALUES('pedro@gmail.com','pedro123','PedroReyes','1990-01-01','MALE',1,'09999');
+
+INSERT INTO channels(name,description,creation_date,youtube_user) VALUES('PrograTuto','Tutoriales de programación','2020-01-01',1);
+
+INSERT INTO videos(title,description,size_mb,file_name,duration_seconds,thumbnail,reproductions,likes,dislikes,state,youtube_user,upload_date) VALUES('Tutorial Java','Un tutorial de java',2000,'video.mp4',2000,'video.png',100,1,0,'PUBLIC',1,'2020-01-02');
+
+INSERT INTO tags(name) VALUES('Programación');
+
+INSERT INTO tags_videos VALUES(1,1);
