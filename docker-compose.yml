@@ -6,11 +6,12 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "ArturPassRoot-987"
     volumes:
-      - ./build/mysql/level1/level1exercise1optics.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      - ./build/mysql/level1/level1exercise1optics.sql:/docker-entrypoint-initdb.d/level1exercise1optics.sql:ro
       - ./build/mysql/level1/level1exercise2pizzeria.sql:/docker-entrypoint-initdb.d/level1exercise2pizzeria.sql:ro
       - ./build/mysql/level2/level2exercise1youtube.sql:/docker-entrypoint-initdb.d/level2exercise1youtube.sql:ro
       - ./build/mysql/level3/level3exercise1spotify.sql:/docker-entrypoint-initdb.d/level3exercise1spotify.sql:ro
-      - ./build/mysql/level1/selectslevel1.sql:/docker-entrypoint-initdb.d/selectslevel1.sql:ro
+      - ./build/mysql/level3/level3exercise1spotify.sql:/docker-entrypoint-initdb.d/level3exercise1spotify.sql:ro
+      - ./build/mysql/level1/selectsLevel1.sql:/docker-entrypoint-initdb.d/selectsLevel1.sql:ro
       - mysql_data:/var/lib/mysql
     network_mode: "host"
 volumes:
