@@ -108,3 +108,4 @@ INSERT INTO products_from_orders(the_order,product,quantity) VALUES(1,1,1),(1,2,
 SELECT SUM(pr.quantity) as 'Begudes_venudes_a_Barcelona' FROM products_from_orders AS pr JOIN products AS p ON pr.product = p.id JOIN orders AS o ON o.id = pr.the_order JOIN shops AS s ON o.shop = s.id JOIN cities AS c ON c.id = s.city WHERE p.product_type = 'DRINK' AND c.name='Barcelona';
 
 SELECT COUNT (o.id) AS 'Comandes que ha realitzat el empleat' FROM orders AS o JOIN employees AS e ON e.id = o.delivered_by WHERE e.nif ='48473637E';
+

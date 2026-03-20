@@ -124,3 +124,19 @@ INSERT INTO videos(title,description,size_mb,file_name,duration_seconds,thumbnai
 INSERT INTO tags(name) VALUES('Programación');
 
 INSERT INTO tags_videos VALUES(1,1);
+
+INSERT INTO users(email,pass,user_name,date_of_birth,sex,country,postal_code) VALUES('juan@gmail.com','juan123','JuanCosta','1990-01-01','MALE',1,'09999');
+
+INSERT INTO channels(name,description,creation_date,youtube_user) VALUES('CociTuto','Tutoriales de cocina','2021-01-01',2);
+
+INSERT INTO subscriptions(youtube_user, channel) VALUES(1,2);
+
+INSERT INTO likes_of_videos(youtube_user,video,is_like,like_date) VALUES(2,1,true,'2020-02-02');
+
+INSERT INTO playlists(name,creation_date,is_public,youtube_user) VALUES('Programación','2021-01-01',true,2);
+
+INSERT INTO videos_playlists(playlist,video) VALUES(1,1);
+
+INSERT INTO comments(content,write_time,youtube_user,video) VALUES('muy bueno','2021-01-01',2,1);
+
+INSERT INTO likes_of_comments(youtube_comment,youtube_user,is_like,like_time) VALUES(1,1,true,'2021-01-02');
