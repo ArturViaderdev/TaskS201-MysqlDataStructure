@@ -31,7 +31,7 @@ The project is structured in three levels of increasing complexity.
 ├── docker-compose.yml
 └── README.md
 
-```
+````
 
 ## 🚀 Instal.lation and Execution
 ````bash
