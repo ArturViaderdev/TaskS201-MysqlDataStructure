@@ -1,5 +1,46 @@
 # TaskS201 Mysql Data Structure
 
+## Description
+This project was created for academic purposes as part of the IT Academy Java & Spring specialization.
+The goal is to create databases using MySQL.
+
+The project is structured in three levels of increasing complexity.
+
+## 🛠 Technologies
+- SQL
+- Docker
+
+##    Project Structure
+````bash
+├── build
+│   └── mysql
+│       ├── Dockerfile
+│       ├── level1
+│       │   ├── level1exercise1optics.png
+│       │   ├── level1exercise1optics.sql
+│       │   ├── level1exercise2pizzeria.png
+│       │   ├── level1exercise2pizzeria.sql
+│       │   └── selectsLevel1.sql
+│       ├── level2
+│       │   ├── level2exercise1youtube.png
+│       │   └── level2exercise1youtube.sql
+│       ├── level3
+│       │   ├── level3exercise1spotify.png
+│       │   └── level3exercise1spotify.sql
+│       └── mysqld.cnf
+├── docker-compose.yml
+└── README.md
+
+```
+
+## 🚀 Instal.lation and Execution
+````bash
+git clone https://github.com/ArturViaderdev/TaskS201-MysqlDataStructure
+cd TaskS201-MysqlDataStructure
+docker-compose up
+````
+MySQL will run in Docker, and the databases will be created. The SELECT queries will also be executed.
+
 # Level 1
 
 ## Exercise 1 - Optics
